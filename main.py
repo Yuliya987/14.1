@@ -13,7 +13,6 @@ class Product:
         self.price = price
         self.quantity = quantity
 
-
 prod_1 = Product()
 prod_2 = Product()
 
