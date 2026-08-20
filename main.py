@@ -8,10 +8,10 @@ class Product:
 prod_1 = Product()
 prod_2 = Product()
 
-prod_1.name =
-prod_1.description =
-prod_1.price =
-prod_1.quantity =
+prod_1.name = str
+prod_1.description = str
+prod_1.price = float
+prod_1.quantity = str
 
 class Category:
     pass
@@ -19,6 +19,6 @@ class Category:
 cat_1 = Category()
 cat_2 = Category()
 
-cat_1.name =
-cat_1.description =
-cat_1.products =
+cat_1.name = str
+cat_1.description = str
+cat_1.products = str
