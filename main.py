@@ -2,6 +2,7 @@ from importlib.metadata import pass_none
 
 
 class Product:
+    """ Класс продукта"""
     name: str
     description: str
     price: float
@@ -18,6 +19,7 @@ prod_2 = Product()
 
 
 class Category:
+    """ Класс категории продукта"""
     name: str
     description: str
     products: str
