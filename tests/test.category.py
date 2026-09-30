@@ -22,4 +22,3 @@ def test_add_product():
     assert len(category.products) == 1
     assert category.products.name == "Test Product"
     assert Category.product_count == 1
-
