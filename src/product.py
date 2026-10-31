@@ -24,7 +24,10 @@ class Product:
                 product.quantity += quantity
                 product.price = max(product.price, price)
                 product.description = description
-            return product
-    new_product = cls(name=name, price=price, quantity=quantity)
-    goods_list.append(new_product)
-    return new_product
+                return product
+            else:
+               new_product = cls(name=name, description = description, price=price, quantity=quantity)
+               product_list.append(new_product)
+               return new_product
+
+        return product_list
