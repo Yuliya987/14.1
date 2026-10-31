@@ -6,6 +6,7 @@ class Category:
     category_count = 0
     product_count = 0
 
+
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
@@ -15,3 +16,10 @@ class Category:
 
     def add_product(self, product):
         self.__products.append(product)
+        self.__class__.product_count += 1
+
+
+    # Геттер для списка товаров
+    @property
+    def products(self):
+        return f'{self.name}, {self.price} руб. Остаток: {self.quantity}{self.description}'
