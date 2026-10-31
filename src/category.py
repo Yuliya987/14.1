@@ -22,4 +22,10 @@ class Category:
     # Геттер для списка товаров
     @property
     def products(self):
-        return f'{self.name}, {self.price} руб. Остаток: {self.quantity}{self.description}'
+        products_str = ""
+        for product in self.__products:
+            name = product.name
+            price = product.price
+            quantity = product.quantity
+            products_str += f'{name}, {price} руб. Остаток: {quantity} шт.\n'
+        return products_str
