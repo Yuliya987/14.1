@@ -9,7 +9,7 @@ class Product:
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
 
     @classmethod
@@ -31,3 +31,22 @@ class Product:
                return new_product
 
         return product_list
+
+    # Геттер для получения цены
+    @property
+    def price(self):
+        return self.__price
+
+    # Сеттер для проверки на положительное значение новой цены
+    @price.setter
+    def price(self, value):
+        if value <= 0:
+            print('Цена не должна быть нулевая или отрицательная')
+        elif value < self.__price:
+            answ = input('Цена ниже начальной. Введите "y" для согласия понизить цену или "n" для отмены')
+            if answ == 'y':
+                self.__price = value
+            else:
+                self.__price = self.__price
+        else:
+            self.__price = value
