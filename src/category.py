@@ -1,3 +1,5 @@
+from src.product import Product
+
 class Category:
     """ Класс категории товаров"""
     name: str
@@ -14,12 +16,16 @@ class Category:
         Category.category_count += 1
         Category.product_count = len(products)
 
+    def get_product_objects(self):
+        return self.__products
+
+
     def add_product(self, product):
         self.__products.append(product)
         self.__class__.product_count += 1
 
 
-    # Геттер для списка товаров
+        # Геттер для списка товаров
     @property
     def products(self):
         products_str = ""
