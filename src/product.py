@@ -12,6 +12,7 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+
     @classmethod
     def new_product(cls,  product_data: dict, product_list: list):
         name = product_data['name']
@@ -43,8 +44,8 @@ class Product:
         if value <= 0:
             print('Цена не должна быть нулевая или отрицательная')
         elif value < self.__price:
-            answ = input('Цена ниже начальной. Введите "y" для согласия понизить цену или "n" для отмены')
-            if answ == 'y':
+            answer = input('Цена ниже начальной. Введите "y" для согласия понизить цену или "n" для отмены')
+            if answer == 'y':
                 self.__price = value
             else:
                 self.__price = self.__price
