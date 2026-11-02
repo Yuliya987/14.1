@@ -25,7 +25,7 @@ class Category:
         self.__class__.product_count += 1
 
 
-        # Геттер для списка товаров
+     # Геттер для списка товаров
     @property
     def products(self):
         products_str = ""

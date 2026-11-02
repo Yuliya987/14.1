@@ -44,7 +44,7 @@ class Product:
         if value <= 0:
             print('Цена не должна быть нулевая или отрицательная')
         elif value < self.__price:
-            answer = input('Цена ниже начальной. Введите "y" для согласия понизить цену или "n" для отмены')
+            answer = input('Цена ниже начальной. Введите "y" для согласия понизить цену или "n" для отмены: ')
             if answer == 'y':
                 self.__price = value
             else:

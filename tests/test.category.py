@@ -1,6 +1,8 @@
 import pytest
 
 from src.category import Category
+from src.product import Product
+
 
 def test_init_category(new_category):
     assert new_category.name == "Test Category"
@@ -10,14 +12,14 @@ def test_init_category(new_category):
 
 
 def test_multiple_categories():
-    Category("Category 1", "Desc 1",)
-    Category("Category 2", "Desc 2",)
-    Category("Category 3", "Desc 3",)
+    Category("Category 1", "Desc 1")
+    Category("Category 2", "Desc 2")
+    Category("Category 3", "Desc 3")
     assert Category.category_count == 3
 
 def test_add_product():
-    category = Category("Test Category", "Test Description",)
-    product = Product("Test Product", 10.0, 5)  # Создаём фиктивный продукт
+    category = Category("Test Category", "Test Description")
+    product = Product("Test Product", 10.0, 5, 4)  # Создаём фиктивный продукт
     category.add_product(product)
     assert len(category.products) == 1
     assert category.products.name == "Test Product"
