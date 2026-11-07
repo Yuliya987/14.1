@@ -1,3 +1,4 @@
+
 class Category:
     """ Класс категории товаров"""
     name: str
@@ -5,17 +6,20 @@ class Category:
     products: list
     category_count = 0
     product_count = 0
+    products_list: list = []
+
+
+    def get_product_objects(self):
+        return self.__products
 
 
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.__products = []
+        self.__products = products
         Category.category_count += 1
         Category.product_count = len(products)
-
-    def get_product_objects(self):
-        return self.__products
+        Category.products_list.extend(products)
 
 
     def add_product(self, product):
@@ -33,3 +37,8 @@ class Category:
             quantity = product.quantity
             products_str += f'{name}, {price} руб. Остаток: {quantity} шт.\n'
         return products_str
+
+    @property
+    def products_in_list(self) -> list:
+        """Геттер, который возвращает приватный атрибут products в виде списка"""
+        return self.__products
