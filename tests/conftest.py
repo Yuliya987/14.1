@@ -4,9 +4,21 @@ from src.category import Category
 from src.product import Product
 
 
+def category():
+    return Category('name', 'description', 'products')
+
+
 @pytest.fixture
-def new_category():
-    return Category("Test Category", "Test Description", "Test Product")
+def sample_product():
+    return Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+
+@pytest.fixture
+def multiple_products():
+    return [Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
+    Product("Test Category", "Test Description", "Test Product", 7),
+    Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+            ]
 
 
 @pytest.fixture

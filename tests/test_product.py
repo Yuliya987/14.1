@@ -1,4 +1,3 @@
-import pytest
 import unittest
 from unittest.mock import patch
 from src.product import Product
