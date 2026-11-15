@@ -22,17 +22,36 @@ def new_category():
     )
 
 
-@pytest.fixture
-def sample_product():
-    return Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+#@pytest.fixture
+#def another_category() -> Category:
+#    return Category(
+#        name="Телевизоры",
+#        description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом",
+#        products=[Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)],
+#    )
 
 
 @pytest.fixture
-def multiple_products():
-    return [Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
-    Product("Test Category", "Test Description", "Test Product", 7),
-    Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-            ]
+def sample_products():
+    return [Product("name1", "description1", 100.0, 5), Product("name2", "description2", 200.0, 3)]
+
+
+@pytest.fixture
+def category_with_products(sample_products):
+    return Category("name1", "description1", sample_products.copy())
+
+
+#@pytest.fixture
+#def sample_product():
+#    return [Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)]
+
+
+#@pytest.fixture
+#def multiple_products():
+#    return [Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
+#    Product("Test Category", "Test Description", "Test Product", 7),
+#    Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+#            ]
 
 
 @pytest.fixture
