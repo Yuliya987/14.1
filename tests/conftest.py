@@ -7,7 +7,7 @@ from src.product import Product
 @pytest.fixture
 def category():
     """Фикстура категории"""
-    return Category('name', 'description', 'products')
+    return Category("name", "description", "products")
 
 
 @pytest.fixture
@@ -15,9 +15,17 @@ def new_category():
     """Фикстура новая категория"""
     return Category(
         name="Смартфоны",
-        description="Смартфоны, как средство не только коммуникации, но и получения дополнительных функций",
+        description=(
+            "Смартфоны, как средство не только коммуникации, "
+            "но и получения дополнительных функций"
+        ),
         products=[
-            Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
+            Product(
+                "Samsung Galaxy S23 Ultra",
+                "256GB, Серый цвет, 200MP камера",
+                180000.0,
+                5,
+            ),
             Product("Iphone 15", "512GB, Gray space", 210000.0, 8),
             Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14),
         ],
@@ -27,7 +35,10 @@ def new_category():
 @pytest.fixture
 def sample_products():
     """Фикстура образцы продуктов"""
-    return [Product("name1", "description1", 100.0, 5), Product("name2", "description2", 200.0, 3)]
+    return [
+        Product("name1", "description1", 100.0, 5),
+        Product("name2", "description2", 200.0, 3),
+    ]
 
 
 @pytest.fixture
@@ -45,8 +56,12 @@ def product1():
 @pytest.fixture
 def test_product_data1():
     """Фикстура словарь с продуктами 1"""
-    return {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
-         "quantity": 5}
+    return {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5,
+    }
 
 
 @pytest.fixture
@@ -58,15 +73,23 @@ def test_product_list1():
 @pytest.fixture
 def test_product_data2():
     """Фикстура словарь с продуктами 2"""
-    return {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 20000.0,
-         "quantity": 1}
+    return {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 20000.0,
+        "quantity": 1,
+    }
 
 
 @pytest.fixture
 def test_product_data3():
     """Фикстура словарь с продуктами 3"""
-    return {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 250000.0,
-         "quantity": 1}
+    return {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 250000.0,
+        "quantity": 1,
+    }
 
 
 @pytest.fixture

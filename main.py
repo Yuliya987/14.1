@@ -1,6 +1,6 @@
 from src.product import Product
 from src.category import Category
-
+from tests.conftest import test_product_list1
 
 if __name__ == "__main__":
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
@@ -20,7 +20,11 @@ if __name__ == "__main__":
     print(category1.products)
     print(category1.product_count)
 
-    product_list = category1.get_product_objects()
+    product_list = [
+        Product(
+            "Test Product", "Test Description", 10.99, 100
+        )
+    ]
     print (product_list)
 
     new_product = Product.new_product(
