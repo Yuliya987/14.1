@@ -7,17 +7,20 @@ class Product:
 
 
     def __init__(self, name, description, price, quantity):
+        """Метод для инициализации экземпляра класса"""
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
 
     def __str__(self):
+        """Возвращает строку с товаром"""
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
 
 
     @classmethod
     def new_product(cls,  product_data: dict, product_list: list):
+        """Метод создает новый товар"""
         name = product_data['name']
         description = product_data ['description']
         price = product_data['price']

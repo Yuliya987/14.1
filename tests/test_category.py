@@ -2,6 +2,7 @@ from src.category import Category
 
 
 def test_init_category(new_category):
+    """Тест на проверку корректности инициализации класса Category"""
     assert new_category.name == "Смартфоны"
     assert new_category.description == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций"
 
@@ -21,4 +22,5 @@ def test_category_products_property(category_with_products, sample_products):
 
 
 def test_category_str(category_with_products):
+
     assert str(category_with_products) == 'name1, количество продуктов: 8 шт.'

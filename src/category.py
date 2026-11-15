@@ -11,6 +11,7 @@ class Category:
 
 
     def __init__(self, name, description, products):
+        """Метод для инициализации экземпляра класса"""
         self.name = name
         self.description = description
         self.__products = products
@@ -18,6 +19,7 @@ class Category:
         Category.product_count += len(products)
 
     def __str__(self):
+        '''Возвращает строку с товаром'''
         return f'{self.name}, количество продуктов: {sum(product.quantity for product in self.products_in_list)} шт.'
 
 
@@ -28,10 +30,6 @@ class Category:
         for product in self.__products:
             product_str += f'{str(product)}\n'
         return product_str
-
-
-#        def get_product_objects(self):
-#            return self.__products
 
 
     def add_product(self, product: Product) -> None:
@@ -45,21 +43,3 @@ class Category:
     @property
     def products_in_list(self):
         return self.__products
-
-
-#    def add_product(self, product):
-#        self.__products.append(product)
-#        self.__class__.product_count += 1
-
-
-     # Геттер для списка товаров
-
-    #    def products(self):
-#        products_str = ""
-#        for product in self.__products:
-#            name = product.name
-#            price = product.price
-#            quantity = product.quantity
-#            products_str += f'{name}, {price} руб. Остаток: {quantity} шт.\n'
-#        return products_str
-
