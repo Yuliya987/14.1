@@ -5,12 +5,6 @@ from src.product import Product
 
 
 @pytest.fixture
-def category():
-    """Фикстура категории"""
-    return Category("name", "description", "products")
-
-
-@pytest.fixture
 def new_category():
     """Фикстура новая категория"""
     return Category(
@@ -66,7 +60,14 @@ def test_product_data1():
 @pytest.fixture
 def test_product_list1():
     """Фикстура список продуктов 1"""
-    return ["Test Product", "Test Description", 10.99, 100]
+    return [
+        Product(
+            "Samsung Galaxy S23 Ultra",
+            "256GB, Серый цвет, 200MP камера",
+            180000.0,
+            5,
+        )
+    ]
 
 
 @pytest.fixture
