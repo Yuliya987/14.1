@@ -45,7 +45,6 @@ class Product:
 
     # Сеттер для проверки на положительное значение новой цены
     @price.setter
-    @price.setter
     def price(self, value):
         if value <= 0:
             print("Цена не должна быть нулевая или отрицательная")
