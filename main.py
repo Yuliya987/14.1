@@ -1,6 +1,6 @@
 from src.product import Product
 from src.category import Category
-from tests.conftest import test_product_list1
+
 
 if __name__ == '__main__':
     product1 = (Product
