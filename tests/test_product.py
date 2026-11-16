@@ -11,42 +11,60 @@ def test_init_product(product1):
 
 def test_absolutely_new_product(test_product_data1, test_product_list1):
     """Тест создания нового продукта, которого нет в списке"""
-    assert [
-        Product(
-            "Test Product",
-            "Test Description",
-            10.99,
-            100
-        ),
-        Product(
-            "Samsung Galaxy S23 Ultra",
-            "256GB, Серый цвет, 200MP камера",
-            180000.0,
-            5
-        ),
-    ]
+    new_data = {
+        "name": "Iphone 15",
+        "description": "512GB, Gray space",
+        "price": 210000.0,
+        "quantity": 8,
+    }
+    result = Product.new_product(new_data, test_product_list1)
+
+    assert len(test_product_list1) == 2  # товар добавлен в список
+    assert result in test_product_list1
+    assert result.name == "Iphone 15"
+    assert result.price == 210000.0
+    assert result.quantity == 8
+
+
+def test_new_product_same_price(test_product_data1, test_product_list1):
+    """Тест добавления дубликата с той же ценой: количество увеличивается"""
+    result = Product.new_product(test_product_data1, test_product_list1)
+
+    assert len(test_product_list1) == 1  # новый товар не создан
+    assert result.quantity == 10  # 5 + 5
+    assert result.price == 180000.0
 
 
 def test_new_product_low_price(test_product_data2, test_product_list1):
     """Тест добавления нового продукта, цена которого ниже исходной"""
-    assert [Product(
-        "Samsung Galaxy S23 Ultra",
-        "256GB, Серый цвет, 200MP камера",
-        180000.0,
-        5
-    )
-    ]
+    result = Product.new_product(test_product_data2, test_product_list1)
+
+    assert len(test_product_list1) == 1
+    assert result.quantity == 6  # 5 + 1
+    assert result.price == 180000.0
 
 
 def test_new_product_high_price(test_product_data3, test_product_list1):
     """Тест добавления нового продукта, цена которого выше исходной"""
-    assert [Product(
-        "Samsung Galaxy S23 Ultra",
-        "256GB, Серый цвет, 200MP камера",
-        250000.0,
-        5
+    result = Product.new_product(test_product_data3, test_product_list1)
+
+    assert len(test_product_list1) == 1
+    assert result.quantity == 6
+    assert result.price == 250000.0
+
+
+def test_new_product_empty_list():
+    """Тест: при пустом списке метод возвращает сам список (краевой случай)"""
+    result = Product.new_product(
+        {"name": "Тест", "description": "Описание", "price": 100.0, "quantity": 1},
+        [],
     )
-    ]
+    assert result == []
+
+
+def test_price_getter(product1):
+    """Тест геттера цены"""
+    assert product1.price == 10.99
 
 
 def test_price_zero(price_zero):
