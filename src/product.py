@@ -13,7 +13,6 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     @classmethod
     def new_product(cls, product_data: dict, product_list: list):
         """Метод создает новый товар"""
@@ -29,7 +28,10 @@ class Product:
                 return product
             else:
                 new_product = cls(
-                    name=name, description=description, price=price, quantity=quantity
+                    name=name,
+                    description=description,
+                    price=price,
+                    quantity=quantity
                 )
                 product_list.append(new_product)
                 return new_product
