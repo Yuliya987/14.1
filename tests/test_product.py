@@ -14,7 +14,10 @@ def test_absolutely_new_product(test_product_data1, test_product_list1):
     assert [
         Product("Test Product", "Test Description", 10.99, 100),
         Product(
-            "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5
+            "Samsung Galaxy S23 Ultra",
+            "256GB, Серый цвет, 200MP камера",
+            180000.0,
+            5
         ),
     ]
 
@@ -23,7 +26,10 @@ def test_new_product_low_price(test_product_data2, test_product_list1):
     """Тест добавления нового продукта, цена которого ниже исходной"""
     assert [
         Product(
-            "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5
+            "Samsung Galaxy S23 Ultra",
+            "256GB, Серый цвет, 200MP камера",
+            180000.0,
+            5
         )
     ]
 
@@ -32,7 +38,10 @@ def test_new_product_high_price(test_product_data3, test_product_list1):
     """Тест добавления нового продукта, цена которого выше исходной"""
     assert [
         Product(
-            "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 250000.0, 5
+            "Samsung Galaxy S23 Ultra",
+            "256GB, Серый цвет, 200MP камера",
+            250000.0,
+            5
         )
     ]
 
