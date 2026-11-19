@@ -43,7 +43,7 @@ def sample_products():
 
 @pytest.fixture
 def category_with_products(sample_products):
-    """Фикстура катоегории с товарами"""
+    """Фикстура категории с товарами"""
     return Category("name1", "description1", sample_products.copy())
 
 
@@ -102,3 +102,8 @@ def price_zero():
 def price_negative():
     """Фикстура отрицательная цена"""
     return -100
+
+@pytest.fixture
+def empty_category():
+    """Фикстура пустой категории"""
+    return Category("empty", "description", [])
