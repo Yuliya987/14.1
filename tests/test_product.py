@@ -9,6 +9,15 @@ def test_init_product(product1):
     assert product1.quantity == 100
 
 
+def test_product_str(product1):
+    # Создаём объект с понятными значениями
+    product = Product(name="Test Product",description="Test Description", price=10.99, quantity=100)
+    expected = "Test Product, 10.99 руб. Остаток: 100 шт."
+
+    # Проверяем, что str(product) даёт именно эту строку
+    assert str(product) == expected
+
+
 def test_absolutely_new_product(test_product_data1, test_product_list1):
     """Тест создания нового продукта, которого нет в списке"""
     assert [

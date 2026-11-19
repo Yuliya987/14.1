@@ -13,6 +13,11 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """Возвращает строку с товаром"""
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+
     @classmethod
     def new_product(cls, product_data: dict, product_list: list):
         """Метод создает новый товар"""
