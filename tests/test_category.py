@@ -23,3 +23,12 @@ def test_category_products_property(category_with_products, sample_products):
     ]
     expected = "\n".join(expected_lines) + "\n"
     assert products_str == expected
+
+
+def test_category_str(category_with_products):
+
+    assert str(category_with_products) == "name1, количество продуктов: 8 шт."
+
+
+def test_category_str_empty(empty_category):
+    assert str(empty_category) == "empty, количество продуктов: 0 шт."

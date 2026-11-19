@@ -13,6 +13,10 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """Возвращает строку с товаром"""
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
     @classmethod
     def new_product(cls, product_data: dict, product_list: list):
         """Метод создает новый товар"""
@@ -58,3 +62,13 @@ class Product:
                 return
         else:
             self.__price = value
+
+    def __add__(self, other):
+        """Метод складывает общую стоимость товаров"""
+        if isinstance(other, Product):
+            total_self = self.price * self.quantity
+            total_other = other.price * other.quantity
+            return total_self + total_other
+        raise TypeError(
+            "Складывать можно только объекты Product"
+        )
