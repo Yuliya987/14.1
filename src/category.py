@@ -20,10 +20,11 @@ class Category:
 
     def __str__(self):
         """Возвращает строку с товаром"""
-        total_q = sum(product.quantity
-        for product in self.products_in_list)
+        total_q = sum(
+            product.quantity
+            for product in self.products_in_list
+        )
         return f"{self.name}, количество продуктов: {total_q} шт."
-
 
     # Геттер для списка товаров
     @property
