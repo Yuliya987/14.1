@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.smartphone import Smartphone
 
 
 @pytest.fixture
@@ -102,3 +103,17 @@ def price_zero():
 def price_negative():
     """Фикстура отрицательная цена"""
     return -100
+
+@pytest.fixture
+def smartphone1():
+    return Smartphone(
+        "Iphone 15",
+        "512GB,"
+        " Gray space",
+        210000.0,
+        8,
+        98.2,
+        "15",
+        512,
+        "Gray space"
+    )
