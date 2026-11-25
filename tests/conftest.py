@@ -104,6 +104,7 @@ def price_negative():
     """Фикстура отрицательная цена"""
     return -100
 
+
 @pytest.fixture
 def smartphone1():
     return Smartphone(

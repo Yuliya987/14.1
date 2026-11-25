@@ -1,5 +1,6 @@
 from src.lawn_grass import LawnGrass
 
+
 def test_lawn_grass_init():
     """Тест инициализации класса LawnGrass"""
     lawn_grass1 = LawnGrass(

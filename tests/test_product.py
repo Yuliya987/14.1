@@ -56,7 +56,12 @@ def test_new_product_high_price(test_product_data3, test_product_list1):
 def test_new_product_empty_list():
     """Тест: при пустом списке метод возвращает сам список (краевой случай)"""
     result = Product.new_product(
-        {"name": "Тест", "description": "Описание", "price": 100.0, "quantity": 1},
+        {
+         "name": "Тест",
+         "description": "Описание",
+         "price": 100.0,
+         "quantity": 1
+         },
         [],
     )
     assert result == []

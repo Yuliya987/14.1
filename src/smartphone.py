@@ -9,7 +9,7 @@ class Smartphone(Product):
     color: str
 
     def __init__(
-    self,
+        self,
         name: str,
         description: str,
         price: float,
