@@ -2,7 +2,7 @@ from src.smartphone import Smartphone
 
 
 def test_smartphone_init(smartphone1):
-    """Тест на проверку корректности инициализации класса Smartphone"""
+    """Тест инициализации класса Smartphone"""
 
     smartphone = Smartphone(
         name="Iphone 15",
