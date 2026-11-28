@@ -60,6 +60,7 @@ class Product:
             answer = input(message)
             if answer != "y":
                 return
+            self.__price = value
         else:
             self.__price = value
 

@@ -30,6 +30,23 @@ def test_category_products_property(category_with_products, sample_products):
     assert products_str == expected
 
 
+def test_category_iter(
+        category_with_three_products,
+        product1,
+        product2,
+        product3
+):
+    """Category.__iter__ возвращает итератор по товарам категории"""
+    iterator = iter(category_with_three_products)
+
+    assert next(iterator) is product1
+    assert next(iterator) is product2
+    assert next(iterator) is product3
+
+    with pytest.raises(StopIteration):
+        next(iterator)
+
+
 def test_add_product_success(category, smartphone1, lawn_grass1):
     """Можно добавлять и базовый Product, и наследников"""
     category.add_product(smartphone1)

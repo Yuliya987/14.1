@@ -45,12 +45,6 @@ def category_with_products(sample_products):
 
 
 @pytest.fixture
-def product1():
-    """Фикстура продукт 1"""
-    return Product("Test Product", "Test Description", 10.99, 100)
-
-
-@pytest.fixture
 def test_product_data1():
     """Фикстура словарь с продуктами 1"""
     return {
@@ -109,21 +103,36 @@ def price_negative():
 
 
 @pytest.fixture
-def category_with_three_products():
-    """Фикстура категории с тремя товарами"""
-    product1 = Product(
+def product1():
+    """Первый товар для тестов"""
+    return Product(
         "Samsung Galaxy S23 Ultra",
-        "256GB, Серый цвет, 200MP камера",
+        "256GB, Серый цвет",
         180000.0,
-        5,
+        5
     )
-    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
-    description = (
-        "Смартфоны, как средство не только коммуникации, "
-        "но и получения дополнительных функций для удобства жизни"
+
+
+@pytest.fixture
+def product2():
+    """Второй товар для тестов"""
+    return Product("iPhone 15", "512GB, Черный", 210000.0, 8)
+
+
+@pytest.fixture
+def product3():
+    """Третий товар для тестов"""
+    return Product("Xiaomi Redmi Note 11", "128GB, Синий", 31000.0, 14)
+
+
+@pytest.fixture
+def category_with_three_products(product1, product2, product3):
+    """Категория с тремя товарами"""
+    return Category(
+        name="Смартфоны",
+        description="Тестовая",
+        products=[product1, product2, product3],
     )
-    return Category("Смартфоны", description, [product1, product2, product3])
 
 
 @pytest.fixture

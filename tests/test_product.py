@@ -5,10 +5,42 @@ from src.product import Product
 
 def test_init_product(product1):
     """Тест на проверку корректности инициализации класса Product"""
-    assert product1.name == "Test Product"
-    assert product1.description == "Test Description"
-    assert product1.price == 10.99
-    assert product1.quantity == 100
+    assert product1.name == "Samsung Galaxy S23 Ultra"
+    assert product1.description == "256GB, Серый цвет"
+    assert product1.price == 180000.0
+    assert product1.quantity == 5
+
+
+def test_price_setter_lower_price_confirmed(product1, monkeypatch):
+    """Понижение цены с подтверждением 'y' — цена меняется"""
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    product1.price = 150000.0
+    assert product1.price == 150000.0
+
+
+def test_price_setter_lower_price_declined(product1, monkeypatch):
+    """Понижение цены при отказе 'n' — цена не меняется"""
+    monkeypatch.setattr("builtins.input", lambda _: "n")
+    product1.price = 150000.0
+    assert product1.price == 180000.0
+
+
+def test_price_setter_zero_rejected(product1, capsys):
+    """Нулевая цена через сеттер отклоняется с сообщением"""
+    product1.price = 0
+    assert product1.price == 180000.0
+
+    captured = capsys.readouterr()
+    assert "Цена не должна быть нулевая или отрицательная" in captured.out
+
+
+def test_price_setter_negative_rejected(product1, capsys):
+    """Отрицательная цена через сеттер отклоняется с сообщением"""
+    product1.price = -100.0
+    assert product1.price == 180000.0
+
+    captured = capsys.readouterr()
+    assert "Цена не должна быть нулевая или отрицательная" in captured.out
 
 
 def test_product_str_with_zero_quantity():
@@ -131,7 +163,7 @@ def test_new_product_empty_list():
 
 def test_price_getter(product1):
     """Тест геттера цены"""
-    assert product1.price == 10.99
+    assert product1.price == 180000.0
 
 
 def test_price_zero(price_zero):
