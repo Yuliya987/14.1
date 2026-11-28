@@ -74,3 +74,12 @@ def test_add_product_class_instead_of_instance_raises(category):
     """Если передать сам класс, а не объект — тоже ошибка"""
     with pytest.raises(TypeError):
         category.add_product(Product)
+
+
+def test_category_str(category_with_products):
+
+    assert str(category_with_products) == "name1, количество продуктов: 8 шт."
+
+
+def test_category_str_empty(empty_category):
+    assert str(empty_category) == "empty, количество продуктов: 0 шт."

@@ -13,6 +13,10 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """Возвращает строку с товаром"""
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
     @classmethod
     def new_product(cls, product_data: dict, product_list: list):
         """Метод создает новый товар"""
@@ -31,16 +35,12 @@ class Product:
                     name=name,
                     description=description,
                     price=price,
-                    quantity=quantity,
+                    quantity=quantity
                 )
                 product_list.append(new_product)
                 return new_product
 
         return product_list
-
-    def __str__(self):
-        """Возвращает строку с товаром"""
-        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     # Геттер для получения цены
     @property

@@ -40,7 +40,7 @@ def sample_products():
 
 @pytest.fixture
 def category_with_products(sample_products):
-    """Фикстура катоегории с товарами"""
+    """Фикстура категории с товарами"""
     return Category("name1", "description1", sample_products.copy())
 
 
@@ -110,6 +110,16 @@ def product1():
         "256GB, Серый цвет",
         180000.0,
         5
+    )
+
+
+@pytest.fixture
+def empty_category():
+    """Фикстура с пустой категорией (без товаров)"""
+    return Category(
+        "empty",
+        "Описание пустой категории",
+        [],
     )
 
 
