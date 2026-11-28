@@ -1,4 +1,5 @@
 from src.product import Product
+from src.iter_products import IteratorProduct
 
 
 class Category:
@@ -37,13 +38,20 @@ class Category:
             )
         return product_str
 
+    def __iter__(self):
+        """Возвращает итератор по товарам категории"""
+        return IteratorProduct(self)
+
     def add_product(self, product: Product) -> None:
         """Метод добавляет товар в категорию"""
         if isinstance(product, Product):
             self.__products.append(product)
             Category.product_count += 1
         else:
-            raise TypeError
+            raise TypeError(
+                "В категорию можно добавлять только объекты класса Product "
+                "и его наследников"
+            )
 
     @property
     def products_in_list(self):

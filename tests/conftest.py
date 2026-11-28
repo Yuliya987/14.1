@@ -1,8 +1,10 @@
 import pytest
 
 from src.category import Category
-from src.IterProducts import ProductIterator
+from src.lawn_grass import LawnGrass
 from src.product import Product
+from src.smartphone import Smartphone
+from src.iter_products import IteratorProduct
 
 
 @pytest.fixture
@@ -12,7 +14,8 @@ def new_category():
         name="Смартфоны",
         description=(
             "Смартфоны, как средство не только коммуникации, "
-            "но и получения дополнительных функций"),
+            "но и получения дополнительных функций"
+        ),
         products=[
             Product(
                 "Samsung Galaxy S23 Ultra",
@@ -39,12 +42,6 @@ def sample_products():
 def category_with_products(sample_products):
     """Фикстура категории с товарами"""
     return Category("name1", "description1", sample_products.copy())
-
-
-@pytest.fixture
-def product1():
-    """Фикстура продукт 1"""
-    return Product("Test Product", "Test Description", 10.99, 100)
 
 
 @pytest.fixture
@@ -106,24 +103,46 @@ def price_negative():
 
 
 @pytest.fixture
-def empty_category():
-    """Фикстура пустой категории"""
-    return Category("empty", "description", [])
+def product1():
+    """Первый товар для тестов"""
+    return Product(
+        "Samsung Galaxy S23 Ultra",
+        "256GB, Серый цвет",
+        180000.0,
+        5
+    )
 
 
 @pytest.fixture
-def category_with_three_products():
-    """Фикстура категории с тремя товарами"""
-    product1 = Product(
-        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5
+def empty_category():
+    """Фикстура с пустой категорией (без товаров)"""
+    return Category(
+        "empty",
+        "Описание пустой категории",
+        [],
     )
-    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
-    description = (
-        "Смартфоны, как средство не только коммуникации, "
-        "но и получения дополнительных функций для удобства жизни"
+
+
+@pytest.fixture
+def product2():
+    """Второй товар для тестов"""
+    return Product("iPhone 15", "512GB, Черный", 210000.0, 8)
+
+
+@pytest.fixture
+def product3():
+    """Третий товар для тестов"""
+    return Product("Xiaomi Redmi Note 11", "128GB, Синий", 31000.0, 14)
+
+
+@pytest.fixture
+def category_with_three_products(product1, product2, product3):
+    """Категория с тремя товарами"""
+    return Category(
+        name="Смартфоны",
+        description="Тестовая",
+        products=[product1, product2, product3],
     )
-    return Category("Смартфоны", description, [product1, product2, product3])
 
 
 @pytest.fixture
@@ -138,4 +157,42 @@ def second_product():
 
 @pytest.fixture
 def product_iterator(category_with_three_products):
-    return ProductIterator(category_with_three_products)
+    """Итератор по товарам категории"""
+    return IteratorProduct(category_with_three_products)
+
+
+@pytest.fixture
+def category():
+    """Фикстура пустая категория"""
+    return Category(
+        name="Пустая категория", description="Тестовая", products=[]
+    )
+
+
+@pytest.fixture
+def smartphone1():
+    """Фикстура смартфон 1"""
+    return Smartphone(
+        "Iphone 15",
+        "512GB," " Gray space",
+        210000.0,
+        8,
+        98.2,
+        "15",
+        512,
+        "Gray space",
+    )
+
+
+@pytest.fixture
+def lawn_grass1():
+    """Фикстура газонная трава 1"""
+    return LawnGrass(
+        name="Газонная трава",
+        description="Элитная трава для газона",
+        price=500.0,
+        quantity=20,
+        country="Россия",
+        germination_period="7 дней",
+        color="Зелёный",
+    )

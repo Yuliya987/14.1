@@ -60,15 +60,12 @@ class Product:
             answer = input(message)
             if answer != "y":
                 return
+            self.__price = value
         else:
             self.__price = value
 
     def __add__(self, other):
-        """Метод складывает общую стоимость товаров"""
-        if isinstance(other, Product):
-            total_self = self.price * self.quantity
-            total_other = other.price * other.quantity
-            return total_self + total_other
-        raise TypeError(
-            "Складывать можно только объекты Product"
-        )
+        """Складывает общую стоимость товаров одного класса"""
+        if type(self) is not type(other):
+            raise TypeError("Складывать можно только товары одного класса")
+        return (self.price * self.quantity) + (other.price * other.quantity)
