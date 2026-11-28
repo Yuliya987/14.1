@@ -27,11 +27,20 @@ class Product:
                 product.description = description
                 return product
             else:
-                new_product = cls(name=name, description=description, price=price, quantity=quantity)
+                new_product = cls(
+                    name=name,
+                    description=description,
+                    price=price,
+                    quantity=quantity,
+                )
                 product_list.append(new_product)
                 return new_product
 
         return product_list
+
+    def __str__(self):
+        """Возвращает строку с товаром"""
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     # Геттер для получения цены
     @property
@@ -44,9 +53,18 @@ class Product:
         if value <= 0:
             print("Цена не должна быть нулевая или отрицательная")
         elif value < self.__price:
-            message = 'Цена ниже начальной. Введите "y" для согласия ' 'понизить цену или "n" для отмены: '
+            message = (
+                'Цена ниже начальной. Введите "y" для согласия '
+                'понизить цену или "n" для отмены: '
+            )
             answer = input(message)
             if answer != "y":
                 return
         else:
             self.__price = value
+
+    def __add__(self, other):
+        """Складывает общую стоимость товаров одного класса"""
+        if type(self) is not type(other):
+            raise TypeError("Складывать можно только товары одного класса")
+        return (self.price * self.quantity) + (other.price * other.quantity)

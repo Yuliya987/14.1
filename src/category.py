@@ -1,4 +1,5 @@
 from src.product import Product
+from src.iter_products import IteratorProduct
 
 
 class Category:
@@ -23,8 +24,15 @@ class Category:
     def products(self) -> str:
         product_str = ""
         for product in self.__products:
-            product_str += f"{product.name}, {product.price} руб. " f"Остаток: {product.quantity} шт.\n"
+            product_str += (
+                f"{product.name}, {product.price} руб. "
+                f"Остаток: {product.quantity} шт.\n"
+            )
         return product_str
+
+    def __iter__(self):
+        """Возвращает итератор по товарам категории"""
+        return IteratorProduct(self)
 
     def add_product(self, product: Product) -> None:
         """Метод добавляет товар в категорию"""
@@ -32,7 +40,10 @@ class Category:
             self.__products.append(product)
             Category.product_count += 1
         else:
-            raise TypeError("В категорию можно добавлять только объекты класса Product " "и его наследников")
+            raise TypeError(
+                "В категорию можно добавлять только объекты класса Product "
+                "и его наследников"
+            )
 
     @property
     def products_in_list(self):

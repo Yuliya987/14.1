@@ -1,6 +1,3 @@
-from src.lawn_grass import LawnGrass
-
-
 def test_lawn_grass_init(lawn_grass1):
     """Тест инициализации класса LawnGrass"""
     assert lawn_grass1.name == "Газонная трава"
@@ -9,4 +6,4 @@ def test_lawn_grass_init(lawn_grass1):
     assert lawn_grass1.quantity == 20
     assert lawn_grass1.country == "Россия"
     assert lawn_grass1.germination_period == "7 дней"
-    assert lawn_grass1.color == "Зеленый"
+    assert lawn_grass1.color == "Зелёный"

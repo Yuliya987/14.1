@@ -36,7 +36,7 @@ dev = [
 [tool.coverage.run]
 
 [tool.black]
-line-length = 119
+line-length = 79
 exclude = '''
 /(
     \.venv
