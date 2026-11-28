@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.lawn_grass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
 
@@ -10,9 +11,7 @@ def new_category():
     """Фикстура новая категория"""
     return Category(
         name="Смартфоны",
-        description=(
-            "Смартфоны, как средство не только коммуникации, "
-            "но и получения дополнительных функций"),
+        description=("Смартфоны, как средство не только коммуникации, " "но и получения дополнительных функций"),
         products=[
             Product(
                 "Samsung Galaxy S23 Ultra",
@@ -106,15 +105,26 @@ def price_negative():
 
 
 @pytest.fixture
+def category():
+    """Фикстура пустая категория"""
+    return Category(name="Пустая категория", description="Тестовая", products=[])
+
+
+@pytest.fixture
 def smartphone1():
-    return Smartphone(
-        "Iphone 15",
-        "512GB,"
-        " Gray space",
-        210000.0,
-        8,
-        98.2,
-        "15",
-        512,
-        "Gray space"
+    """Фикстура смартфон 1"""
+    return Smartphone("Iphone 15", "512GB," " Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
+
+
+@pytest.fixture
+def lawn_grass1():
+    """Фикстура газонная трава 1"""
+    return LawnGrass(
+        name="Газонная трава",
+        description="Элитная трава для газона",
+        price=500.0,
+        quantity=20,
+        country="Россия",
+        germination_period="7 дней",
+        color="Зелёный",
     )

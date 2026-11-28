@@ -3,6 +3,7 @@ from src.product import Product
 
 class LawnGrass(Product):
     """Класс для представления «Трава газонная» в магазине"""
+
     country: str
     germination_period: str
     color: str
@@ -15,7 +16,7 @@ class LawnGrass(Product):
         quantity: int,
         country: str,
         germination_period: str,
-        color: str
+        color: str,
     ):
         super().__init__(name, description, price, quantity)
         self.country = country

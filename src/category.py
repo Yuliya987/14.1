@@ -23,10 +23,7 @@ class Category:
     def products(self) -> str:
         product_str = ""
         for product in self.__products:
-            product_str += (
-                f"{product.name}, {product.price} руб. "
-                f"Остаток: {product.quantity} шт.\n"
-            )
+            product_str += f"{product.name}, {product.price} руб. " f"Остаток: {product.quantity} шт.\n"
         return product_str
 
     def add_product(self, product: Product) -> None:
@@ -35,7 +32,7 @@ class Category:
             self.__products.append(product)
             Category.product_count += 1
         else:
-            raise TypeError
+            raise TypeError("В категорию можно добавлять только объекты класса Product " "и его наследников")
 
     @property
     def products_in_list(self):

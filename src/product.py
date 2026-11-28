@@ -27,12 +27,7 @@ class Product:
                 product.description = description
                 return product
             else:
-                new_product = cls(
-                    name=name,
-                    description=description,
-                    price=price,
-                    quantity=quantity
-                )
+                new_product = cls(name=name, description=description, price=price, quantity=quantity)
                 product_list.append(new_product)
                 return new_product
 
@@ -49,10 +44,7 @@ class Product:
         if value <= 0:
             print("Цена не должна быть нулевая или отрицательная")
         elif value < self.__price:
-            message = (
-                'Цена ниже начальной. Введите "y" для согласия '
-                'понизить цену или "n" для отмены: '
-            )
+            message = 'Цена ниже начальной. Введите "y" для согласия ' 'понизить цену или "n" для отмены: '
             answer = input(message)
             if answer != "y":
                 return

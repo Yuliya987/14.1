@@ -1,18 +1,8 @@
 from src.lawn_grass import LawnGrass
 
 
-def test_lawn_grass_init():
+def test_lawn_grass_init(lawn_grass1):
     """Тест инициализации класса LawnGrass"""
-    lawn_grass1 = LawnGrass(
-        name="Газонная трава",
-        description="Элитная трава для газона",
-        price=500.0,
-        quantity=20,
-        country="Россия",
-        germination_period="7 дней",
-        color="Зеленый",
-    )
-
     assert lawn_grass1.name == "Газонная трава"
     assert lawn_grass1.description == "Элитная трава для газона"
     assert lawn_grass1.price == 500.0
